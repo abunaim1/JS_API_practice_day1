@@ -4,26 +4,34 @@ const loadCategory = () => {
     .then((data) => displayCategory(data));
 };
 const displayCategory = (category) => {
-  //   console.log(category);
   const parent = document.getElementById("category");
   category.forEach((item) => {
     const div = document.createElement("div");
     div.innerHTML = `
-        <h3>${item}</h3>
+        <h3 onclick="loadProductsCategoryWise('${item}')">${item}</h3>
         `;
     parent.appendChild(div);
   });
 };
 
-const loadProducts = () => {
-  fetch("https://fakestoreapi.com/products")
+const loadProductsCategoryWise = (item) => {
+  console.log(item);
+  fetch(`https://fakestoreapi.com/products/category/${item ? item : ""}`)
+    .then((res) => res.json())
+    .then((data) => displayProducts(data));
+};
+
+const loadProducts = (item) => {
+  console.log(item);
+  fetch(`https://fakestoreapi.com/products`)
     .then((res) => res.json())
     .then((data) => displayProducts(data));
 };
 
 const displayProducts = (products) => {
-  const parent = document.getElementById("products");
+  document.getElementById("products").innerHTML = " ";
   products.forEach((item) => {
+    const parent = document.getElementById("products");
     const div = document.createElement("div");
     div.classList.add("product");
     div.innerHTML = `
@@ -39,5 +47,6 @@ const displayProducts = (products) => {
     parent.appendChild(div);
   });
 };
+
 loadProducts();
 loadCategory();
