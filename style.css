@@ -56,3 +56,17 @@
     width: 40px;
     padding: 5px;
 }
+
+/* user details */
+.user{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 40px;
+}
+.registration{
+    width: 30%;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}

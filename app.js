@@ -27,7 +27,7 @@ const loadProducts = (item) => {
 };
 
 const displayProducts = (products) => {
-  document.getElementById("products").innerHTML = " ";
+  document.getElementById("products").innerHTML = "";
   products.forEach((item) => {
     const parent = document.getElementById("products");
     const div = document.createElement("div");
@@ -38,7 +38,9 @@ const displayProducts = (products) => {
             <p class="btn btn-outline-dark btn-sm">${item.category}</p>
             <h2>${item.price}$</h2>
 
-            <p class="btn btn-secondary"><a target="_blank" class = "text-decoration-none text-light" href="product_details.html?id=${item.id}">Details</a></p>
+            <p class="btn btn-secondary"><a target="_blank" class = "text-decoration-none text-light" href="product_details.html?id=${
+              item.id
+            }">Details</a></p>
 
             <p class="fw-light">${item.description.slice(0, 100)}</p>
             <img src="${item.image}" alt="product image">
@@ -49,7 +51,7 @@ const displayProducts = (products) => {
 };
 
 const urlParams = new URLSearchParams(window.location.search);
-const productId = urlParams.get('id');
+const productId = urlParams.get("id");
 
 const loadDetails = (productId) => {
   fetch(`https://fakestoreapi.com/products/${productId}`)

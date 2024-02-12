@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+    crossorigin="anonymous"/>
+</head>
+<body>
+    <div class="dropdown category m-5">
+        <h3 class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          User
+        </h3>
+        <ul class="dropdown-menu">
+          <li><a  class="dropdown-item" href="product.html">Products</a></li>
+          <li><a class="dropdown-item" onclick="loadAllUser()">Get all users</a></li>
+          <li class="d-flex align-items-center"><input id="single-user" class="mx-2" type="text" placeholder="Craving for user ID"><button onclick="singleUser(event)" class="me-2 btn btn-primary btn-sm">Submit</button></li>
+          <li><a class="dropdown-item" href="userCreation.html">Add new user</a></li>
+          <li><a class="dropdown-item" href="login.html">User Login</a></li>
+        </ul>
+      </div>
+    <h1 class="registration">Create A User From Here!!!</h1>
+    <form action="" id="registration" class="w-75 m-auto">
+        <div class="mb-3">
+            <label for="username" class="form-label">Username: </label>
+            <input type="text" class="form-control" id="username" required>
+          </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email: </label>
+          <input type="email" class="form-control" id="email" required>
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password: </label>
+          <input type="password" class="form-control" id="password" required>
+        </div>
+        <div class="mb-3">
+            <label for="firstName" class="form-label">First Name: </label>
+            <input type="text" class="form-control" id="firstName" required>
+        </div>
+        <div class="mb-3">
+            <label for="lastName" class="form-label">Last Name: </label>
+            <input type="text" class="form-control" id="lastName" required>
+        </div>
+        <div class="mb-3">
+            <label for="city" class="form-label">City: </label>
+            <input type="text" class="form-control" id="city" required>
+        </div>
+        <div class="mb-3">
+            <label for="street" class="form-label">Street: </label>
+            <input type="text" class="form-control" id="street" required>
+        </div>
+        <div class="mb-3">
+            <label for="phone" class="form-label">Phone: </label>
+            <input type="text" class="form-control" id="phone" required>
+        </div>
+        <input class="btn btn-primary" type="submit" onclick="loadUserCreation(event)"></input>
+    </form>
+    <script src="app.js"></script>
+    <script src="./user.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+</body>
+</html>
