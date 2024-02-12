@@ -36,7 +36,6 @@ const displayAlluser = (data) => {
 const singleUser = (event) => {
   event.preventDefault();
   const id = document.getElementById("single-user").value;
-  console.log(id);
   fetch(`https://fakestoreapi.com/users/${id}`)
     .then((res) => res.json())
     .then((data) => displaySingleuser(data));
@@ -78,17 +77,27 @@ const loadUserCreation = (event) => {
   const phone = getValue("phone");
   const password = getValue("password");
   const info = {
-    username,
-    email,
-    firstName,
-    lastName,
-    city,
-    street,
-    phone,
-    password,
+    email: email,
+    username: username,
+    password: password,
+    name: {
+      firstname: firstName,
+      lastname: lastName,
+    },
+    address: {
+      city: city,
+      street: street,
+      number: 3,
+      zipcode: "12926-3874",
+      geolocation: {
+        lat: "-37.3159",
+        long: "81.1496",
+      },
+    },
+    phone: phone,
   };
-  fetch("https://fakestoreapi.com/users", {
-    method: "POST",
+  fetch("https://fakestoreapi.com/users/7", {
+    method: "PATCH",
     body: JSON.stringify(info),
   })
     .then((res) => res.json())
@@ -99,27 +108,18 @@ const loadLogin = (event) => {
   event.preventDefault();
   const username = getValue("username");
   const password = getValue("password");
-  const info = {
-    username,
-    password,
-  };
   fetch("https://fakestoreapi.com/auth/login", {
     method: "POST",
-    body: JSON.stringify(info),
+    body: JSON.stringify({
+      username: username,
+      password: password,
+    }),
   })
     .then((res) => res.json())
-    .then((data) => {
-      localStorage.setItem("token", data.token);
-      localStorage.setItem("user_id", data.user_id);
-      console.log(data);
-      window.location.href = "product.html";
-    });
+    .then((json) => console.log(json));
 };
 
 const getValue = (id) => {
   const val = document.getElementById(id).value;
   return val;
 };
-
-loadAllUser();
-loadLogin();
